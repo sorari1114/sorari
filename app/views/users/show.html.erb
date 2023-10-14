@@ -1,0 +1,92 @@
+<header>
+  <div class="header-logo">
+    <h1>Share recipe</h1>
+  </div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+    <div id="g-nav-list">  
+      <ul>
+        <li>
+        <%= link_to "Top", foods_top_path %>
+        </li>  
+        <li>
+        <%= link_to "診断", new_perfume_path %>
+        </li>  
+        <li>
+        <%= link_to "新規投稿", new_food_path %>
+        </li>
+        <li>
+        <%= link_to "一覧", foods_path %>
+        </li>  
+        <li>
+        <% if user_signed_in? %>
+              <li>
+              <%= link_to "Mypage", user_path(current_user.id) %>
+              <li>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              </li>  
+              <% else %>
+            <li><%= link_to "Signin", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </li>  
+      </ul>  
+    </div>
+  </nav>
+</header>
+<div class="mypage2">
+<div class="mypage">
+ <div class="image">
+ <%= image_tag @user.image_url, size: "350x300" if @user.image? %>
+ </div>
+
+ <div class="user">
+ <p>名前 : <%= @user.name %></p>
+ <p>メールアドレス : <%= @user.email %></p>
+ <p>プロフィール : <%= @user.profile %></p>
+ </div>
+</div>
+
+<% if current_user.id == @user.id %>
+  <%= link_to "編集", edit_user_registration_path %>
+<% end %>
+
+
+
+
+<div class="h">
+<h2>ユーザーの投稿一覧</h2>
+</div>
+<div class="like">
+<% @user.foods.each do |t| %>
+  <div class="like2">
+  <%= t.user.name %><br>
+  <%= t.body %><br>
+  <%= t. title %><br>
+  <%= t. ingredient %><br>
+  <%= image_tag t.image_url, size: "250x200" if t.user.image? %>
+  <%= link_to "詳細へ", food_path(t.id) %>
+<% end %>
+</div>
+</div>
+
+<!-- 以下はいいね機能を実装している場合-->
+<div class="h">
+<h2>ユーザーがいいねした投稿一覧</h2>
+</div>
+<div class="like">
+<% @user.liked_foods.each do |t| %>
+  <div class="like2">
+  <%= t.user.name %><br>
+  <%= t.body %><br>
+  <%= t. title %><br>
+  <%= t. ingredient %><br>
+  <%= image_tag t.image_url, size: "250x200" if t.user.image? %>
+  <%= link_to "詳細へ", food_path(t.id) %>
+<% end %>
+</div>
+</div>
+</div>
+
+
+

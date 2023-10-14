@@ -1,0 +1,91 @@
+
+<header>
+  <div class="header-logo">
+    <h1>Share recipe</h1>
+  </div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+    <div id="g-nav-list">  
+      <ul>
+        <li>
+        <%= link_to "Top", foods_top_path %>
+        </li>  
+        <li>
+        <%= link_to "診断", new_perfume_path %>
+        </li>  
+        <li>
+        <%= link_to "新規投稿", new_food_path %>
+        </li>
+        <li>
+        <%= link_to "新規投稿", new_food_path %>
+        </li>
+        <li>
+        <%= link_to "一覧", foods_path %>
+        </li>  
+        <li>
+        <% if user_signed_in? %>
+              <li>
+              <%= link_to "Mypage", user_path(current_user.id) %>
+              <li>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              </li>  
+              <% else %>
+            <li><%= link_to "Signin", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </li>  
+      </ul>  
+    </div>
+  </nav>
+</header>
+<div class="perfumes">
+<%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
+    <div class="container-sindan">
+        <div class="row">
+            <div class="col-12">
+                <p>Question1. どのくらいの量…</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "1", nil %>多め</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "2", nil %>普通</p>
+            </div>
+            <div class="col-6">
+            <p><%= f.check_box :question, {multiple: true}, "3", nil %>少なめ</p>
+        </div>
+
+            <div class="col-12">
+                <p>Question2. どんな気分…</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "1", nil %>辛い</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "2", nil %>しょっぱい</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "3", nil %>甘い</p>
+            </div>
+
+            <div class="col-12">
+                <p>Question3. 所要時間は…</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "1", nil %>〜30分</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "2", nil %>30〜60分</p>
+            </div>
+            <div class="col-6">
+                <p><%= f.check_box :question, {multiple: true}, "3", nil %>60〜分</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="sindanbotan">
+        <%= f.submit "診断" %>
+    </div>
+<% end %>
+
+</div>

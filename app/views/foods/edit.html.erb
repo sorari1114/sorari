@@ -1,0 +1,74 @@
+<header>
+  <div class="header-logo">
+    <h1>Share recipe</h1>
+  </div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+    <div id="g-nav-list">  
+      <ul>
+        <li>
+        <%= link_to "Top", foods_top_path %>
+        </li>  
+        <li>
+        <%= link_to "診断", new_perfume_path %>
+        </li>  
+        <li>
+        <%= link_to "新規投稿", new_food_path %>
+        </li>
+        <li>
+        <%= link_to "一覧", foods_path %>
+        </li>  
+        <li>
+        <% if user_signed_in? %>
+              <li>
+              <%= link_to "Mypage", user_path(current_user.id) %>
+              <li>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              </li>  
+              <% else %>
+            <li><%= link_to "Signin", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </li>  
+      </ul>  
+    </div>
+  </nav>
+</header>
+<h1>編集ページ</h1>
+
+<%= form_with(model: @food, local: true) do |f| %>
+
+
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, :size => 30 %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :ingredient %>
+      <%= f.text_field :ingredient, :size => 30 %>
+    </div>
+  
+    
+    <div class="field">
+      <%= f.label :body  %>
+      <%= f.select :body, 
+      [["時短料理", "時短料理"], 
+      ["家庭料理", "家庭料理"], 
+      ["異国料理", "異国料理"]], include_blank: "選択して下さい" %>
+    </div>
+  
+    <div class="time">
+      <%= f.label :start_time %>
+      <%= f.datetime_select :start_time %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :cook  %>
+      <%= f.text_area :cook, :size => "30x2" %>
+    </div>
+  
+    <%= f.submit "投稿する" %>
+  <% end %>
+  
+  <%= link_to "Food一覧に戻る", foods_path %>

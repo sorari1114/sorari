@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  ingredient: MyString
+  body: MyString
+  image: MyString
+  date: 2023-09-04 13:36:39
+  cook: MyText
+  user_id: 1
+
+two:
+  title: MyString
+  ingredient: MyString
+  body: MyString
+  image: MyString
+  date: 2023-09-04 13:36:39
+  cook: MyText
+  user_id: 1

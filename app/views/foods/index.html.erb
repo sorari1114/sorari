@@ -1,0 +1,90 @@
+<header>
+  <div class="header-logo">
+    <h1>Share recipe</h1>
+  </div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+    <div id="g-nav-list">  
+      <ul>
+        <li>
+        <%= link_to "Top", foods_top_path %>
+        </li>  
+        <li>
+        <%= link_to "診断", new_perfume_path %>
+        </li>  
+        <li>
+        <%= link_to "新規投稿", new_food_path %>
+        </li>
+        <li>
+        <%= link_to "一覧", foods_path %>
+        </li>  
+        <li>
+        <% if user_signed_in? %>
+              <li>
+              <%= link_to "Mypage", user_path(current_user.id) %>
+              <li>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              </li>  
+              <% else %>
+            <li><%= link_to "Signin", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </li>  
+      </ul>  
+    </div>
+  </nav>
+</header>
+
+
+
+<div class="food_all">
+  <div class="foodkensaku">
+    <h3>投稿を検索</h3>
+    <div class="kensaku">
+      <%= form_tag({controller:"foods",action:"index"}, method: :get) do %>
+        <%= text_field_tag :search %>
+      </div>
+      <div class="kensaku-submit">
+      <%= submit_tag '検索'  %>
+      </div>
+    <% end %>
+  </div>
+
+
+
+<div class="foods-container">
+
+<% @foods.each do |t| %>
+    <div class="food-container">
+      <div class="food-image">
+      <%= image_tag t.image_url, size: "250x200" if t.user.image? %><br>
+      </div>
+      
+        <%= t.user.name %><br>
+        <%= t. title %><br>
+        <%= t. ingredient %><br>
+        <%= t.body %><br>
+        <%= t.start_time.strftime("%Y-%m-%d %H:%M") %><br>
+        <%= link_to "詳細へ", food_path(t.id) %>
+        <% if user_signed_in? %>
+          <%= link_to "編集する", edit_food_path(t.id) %>
+          <%= button_to "削除する", food_path(t.id), method: :delete %>
+          <% if current_user.already_liked?(t) %>
+          <%= button_to food_like_path(id: t.id, food_id: t.id), method: :delete do %>
+                <i class="fas fa-heart"></i><%= t.likes.count %>
+            <% end %>
+          <% else %>
+            <%= button_to food_likes_path(id: t.id, food_id: t.id), method: :post do %>
+                <i class="far fa-heart"></i><%= t.likes.count %>
+              <% end %>
+            <% end %>
+        <% else %>
+          <i class="far fa-heart"></i><%= t.likes.count %>
+        <% end %>
+      
+    </div>
+      
+    
+<% end %>
+</div>
+

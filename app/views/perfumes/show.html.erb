@@ -1,0 +1,101 @@
+<header>
+  <div class="header-logo">
+    <h1>Share recipe</h1>
+  </div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+    <div id="g-nav-list">  
+      <ul>
+        <li>
+        <%= link_to "Top", foods_top_path %>
+        </li>  
+        <li>
+        <%= link_to "診断", new_perfume_path %>
+        </li>  
+        <li>
+        <%= link_to "新規投稿", new_food_path %>
+        </li>
+        <li>
+        <%= link_to "一覧", foods_path %>
+        </li>  
+        <li>
+        <% if user_signed_in? %>
+              <li>
+              <%= link_to "Mypage", user_path(current_user.id) %>
+              <li>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              </li>  
+              <% else %>
+            <li><%= link_to "Signin", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </li>  
+      </ul>  
+    </div>
+  </nav>
+</header>
+<div class="intoro">
+
+    <h5>診断結果</h5>
+    <p>今のあなたにおすすめの料理は…</p>
+</div>
+    <div class="tweet-container">
+        <div class="tweet">
+                <% if @perfume.question == "111" %>
+                <h6><a href="https://www.momoya.co.jp/recipe/detail/1554/">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "112" %>
+                <h6><a href="https://cookpad.com/recipe/264899">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "113" %>
+                <h6><a href="https://cookpad.com/recipe/146603">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "121" %>
+                <h6><a href="https://cookpad.com/recipe/3811936">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "122" %>
+                <h6><a href="https://cookpad.com/recipe/3030606">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "123" %>
+                <h6><a href="https://cookpad.com/recipe/6567749">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "131" %>
+                <h6><a href="https://cookpad.com/recipe/7614460">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "132" %>
+                <h6><a href="https://cookpad.com/recipe/7612661">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "133" %>
+                <h6><a href="https://cookpad.com/recipe/7554853">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "211" %>
+                <h6><a href="https://cookpad.com/recipe/249626">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "212" %>
+                <h6><a href="https://cookpad.com/recipe/149645">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "213" %>
+                <h6><a href="https://cookpad.com/recipe/223803">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "221" %>
+                <h6><a href="https://cookpad.com/recipe/7501102">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "222" %>
+                <h6><a href="https://cookpad.com/recipe/2410817">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "223" %>
+                <h6><a href="https://cookpad.com/recipe/7522468">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "231" %>
+                <h6><a href="https://cookpad.com/recipe/7228366">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "232" %>
+                <h6><a href="https://cookpad.com/recipe/7534548">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "233" %>
+                <h6><a href="https://cookpad.com/recipe/7554373">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "311" %>
+                <h6><a href="https://cookpad.com/recipe/2342088">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "312" %>
+                <h6><a href="https://cookpad.com/recipe/268654">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "313" %>
+                <h6><a href="https://cookpad.com/recipe/2169605">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "321" %>
+                <h6><a href="https://cookpad.com/recipe/7604880">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "322" %>
+                <h6><a href="https://cookpad.com/recipe/7049134">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "323" %>
+                <h6><a href="https://cookpad.com/recipe/5094339">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "331" %>
+                <h6><a href="https://cookpad.com/recipe/7612282">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "332" %>
+                <h6><a href="https://cookpad.com/recipe/7573690">レシピへジャンプ！</a>
+                <% elsif @perfume.question == "333" %>
+                <h6><a href="https://cookpad.com/recipe/7479247">レシピへジャンプ！</a>
+
+
+
+                <% end %>

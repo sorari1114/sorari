@@ -1,0 +1,90 @@
+<header>
+  <div class="header-logo">
+    <h1>Share recipe</h1>
+  </div>
+  <div class="openbtn"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+    <div id="g-nav-list">  
+      <ul>
+        <li>
+        <%= link_to "Top", foods_top_path %>
+        </li>  
+        <li>
+        <%= link_to "診断", new_perfume_path %>
+        </li>  
+        <li>
+        <%= link_to "新規投稿", new_food_path %>
+        </li>
+        <li>
+        <%= link_to "一覧", foods_path %>
+        </li>  
+        <li>
+        <% if user_signed_in? %>
+              <li>
+              <%= link_to "Mypage", user_path(current_user.id) %>
+              <li>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              </li>  
+              <% else %>
+            <li><%= link_to "Signin", new_user_registration_path %></li>
+            <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+        </li>  
+      </ul>  
+    </div>
+  </nav>
+</header>
+<h1>GeekFood</h1>
+<h3>Food詳細</h3>
+<div class="food">
+  
+  <div class="food1">
+    <%= @food. user.name %> <br>
+    <%= @food. title %><br>
+    <%= @food.body %><br>
+    <%= @food. ingredient %><br>
+    <%= @food. cook %><br>
+    <%= @food.created_at %><br>
+    <% if user_signed_in? %>
+      <%= link_to "編集する", edit_food_path(@food.id) %><br>
+      <% if current_user.already_liked?(@food) %>
+        <%= button_to food_like_path(@food), method: :delete do %>
+            <i class="fas fa-heart"></i><%= @food.likes.count %>
+        <% end %>
+      <% else %>
+        <%= button_to food_likes_path(@food), method: :post do %>
+            <i class="far fa-heart"></i><%= @food.likes.count %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <i class="far fa-heart"></i><%= @food.likes.count %>
+    <% end %>
+  </div>
+  <div class="food2">
+    <%= image_tag @food.image_url, size: "250x200" if @food.user.image? %>
+  </div>
+</div>
+
+<div class="comment-wrapper">
+  <p>コメント一覧</p>
+  <% @comments.each do |c| %>
+    <div>
+      <%= c.user.name unless c.user.blank? %>
+      <br>
+      <%= c.content %>
+    </div>
+      <br>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= form_with(model: [@food, @comment], local: true) do |f| %>
+      <%= f.text_area :content %>
+      <%= button_tag type: "submit" do %>
+        <i class="far fa-comments"></i> コメントする
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<%= link_to "Food一覧に戻る", foods_path %>
+<%= link_to "編集する", edit_food_path(@food.id) %>

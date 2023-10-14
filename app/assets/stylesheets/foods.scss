@@ -1,0 +1,109 @@
+// Place all the styles related to the foods controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/*topページ*/
+.top{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.top_image{
+    width: auto;
+    height: 125%;
+    position: absolute;
+}
+
+.toptext{
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 30px;
+    
+}
+
+.new_image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+
+.field{
+    font-size: 40px;
+    margin-left: 280px;
+    margin-top: 60px;
+}
+
+.time{
+    margin-left: 280px;
+    margin-top: 20px;
+}
+
+.field input{
+    margin-left: 280px;
+}
+
+.openbtn{
+    background-color:rgb(254, 252, 148);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
+.toptext{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+.food_all{
+    padding-top: 100px;
+}
+
+.foodkensaku{
+    text-align: center;
+}
+
+.foods-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.food-container{
+    width: 20%;
+    border: solid black 2px;
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+}
+
+.kensaku input{
+    width: 500px;
+    height: 50px;
+}
+
+.kensaku-submit input{
+    width: 200px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: red;
+    font-size: 20px;
+}
+
+.tweet-container{
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.intoro p{
+    margin-top: 5px;
+}
+
+.intoro h5{
+    margin-top: 300px;
+}
