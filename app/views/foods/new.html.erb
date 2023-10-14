@@ -40,11 +40,9 @@
 
 <%= form_with(model: @food, local: true) do |f| %>
 
-  <div class="new_image">
-  <%= image_tag("haikei1.jpg",class: "new_image") %>
-  </div>
+ 
 
-  
+
   <div class="field">
     <%= f.label :料理名 %>
     <%= f.text_field :title, :size => 30 %>
