@@ -1,7 +1,7 @@
 
 <header>
   <div class="header-logo">
-    <h1>Share recipe</h1>
+    <h1>cook with</h1>
   </div>
   <div class="openbtn"><span></span><span></span><span></span></div>
   <nav id="g-nav">
@@ -13,9 +13,6 @@
         <li>
         <%= link_to "診断", new_perfume_path %>
         </li>  
-        <li>
-        <%= link_to "新規投稿", new_food_path %>
-        </li>
         <li>
         <%= link_to "新規投稿", new_food_path %>
         </li>
@@ -38,6 +35,11 @@
     </div>
   </nav>
 </header>
+
+<div class="foodnew-image">
+  <%= image_tag("haikei5.jpg", class: "food-image") %>
+</div>
+
 <div class="perfumes">
 <%= form_for(@perfume, class: 'form-horizontal', role: 'form') do |f| %>
     <div class="container-sindan">

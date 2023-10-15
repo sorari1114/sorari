@@ -1,6 +1,6 @@
 <header>
   <div class="header-logo">
-    <h1>Share recipe</h1>
+    <h1>cook with</h1>
   </div>
   <div class="openbtn"><span></span><span></span><span></span></div>
   <nav id="g-nav">
@@ -56,7 +56,7 @@
 
 <% @foods.each do |t| %>
     <div class="food-container">
-      <div class="food-image">
+      <div class="food-images">
       <%= image_tag t.image_url, size: "250x200" if t.user.image? %><br>
       </div>
       

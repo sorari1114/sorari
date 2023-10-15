@@ -1,3 +1,8 @@
+<div class="foodnew-image">
+  <%= image_tag("haikei11.jpg", class: "food-image") %>
+</div>
+
+<div class="login">
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -28,3 +33,5 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+</div>

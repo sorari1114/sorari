@@ -1,6 +1,6 @@
 <header>
   <div class="header-logo">
-    <h1>Share recipe</h1>
+    <h1>cook with</h1>
   </div>
   <div class="openbtn"><span></span><span></span><span></span></div>
   <nav id="g-nav">
@@ -40,13 +40,16 @@
     なぜか食材を余らせることが多い…<br>
     この食材何に使えばいいかわからない…<br>
     そんな時に役に立つのがこのサイト!<br>
-    share recipe!
+  <div class="maintext">
+    cook with!
+  </div>
 
   </div> 
  <%= image_tag("top.jpg",class: "top_image") %>
  </div>
 
 
+<div class="top-low">
 <div class="foods-container">
 <% @foods.each do |t| %>
   <div class="food-container">
@@ -70,3 +73,4 @@
 </div>
 
 </body>
+</div>

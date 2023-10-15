@@ -81,6 +81,17 @@
     letter-spacing: 0.1em;
     font-weight: bold;
 }
+header input {
+  background-color: #fff;
+  color: #333;
+    text-decoration: none;
+    padding:10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+    border: #fff;
+}
 .openbtn{
     position:fixed;
     z-index: 9999;/*ボタンを最前面に*/

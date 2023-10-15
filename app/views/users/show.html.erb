@@ -1,6 +1,6 @@
 <header>
   <div class="header-logo">
-    <h1>Share recipe</h1>
+    <h1>cook with</h1>
   </div>
   <div class="openbtn"><span></span><span></span><span></span></div>
   <nav id="g-nav">
@@ -34,59 +34,65 @@
     </div>
   </nav>
 </header>
+
+
+<div class="mypageall">
 <div class="mypage2">
+<div class="mypage_all">
 <div class="mypage">
  <div class="image">
- <%= image_tag @user.image_url, size: "350x300" if @user.image? %>
+  <%= image_tag @user.image_url, size: "350x300" if @user.image? %>
  </div>
 
  <div class="user">
- <p>名前 : <%= @user.name %></p>
- <p>メールアドレス : <%= @user.email %></p>
- <p>プロフィール : <%= @user.profile %></p>
+  <p>名前 : <%= @user.name %></p>
+  <p>メールアドレス : <%= @user.email %></p>
+  <p>プロフィール : <%= @user.profile %></p>
+  <% if current_user.id == @user.id %>
+  <%= link_to "編集", edit_user_registration_path %>
+<% end %>
  </div>
 </div>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集", edit_user_registration_path %>
-<% end %>
 
+</div>
 
 
 
 <div class="h">
 <h2>ユーザーの投稿一覧</h2>
 </div>
-<div class="like">
+<div class="foods-container">
 <% @user.foods.each do |t| %>
-  <div class="like2">
+  <div class="food-container">
+  <%= image_tag t.image_url, size: "250x200" if t.user.image? %></br>
   <%= t.user.name %><br>
   <%= t.body %><br>
   <%= t. title %><br>
   <%= t. ingredient %><br>
-  <%= image_tag t.image_url, size: "250x200" if t.user.image? %>
   <%= link_to "詳細へ", food_path(t.id) %>
+  </div>
 <% end %>
-</div>
+
 </div>
 
 <!-- 以下はいいね機能を実装している場合-->
 <div class="h">
 <h2>ユーザーがいいねした投稿一覧</h2>
 </div>
-<div class="like">
+<div class="foods-container">
 <% @user.liked_foods.each do |t| %>
-  <div class="like2">
+  <div class="food-container">
+  <%= image_tag t.image_url, size: "250x200" if t.user.image? %></br>
   <%= t.user.name %><br>
   <%= t.body %><br>
   <%= t. title %><br>
   <%= t. ingredient %><br>
-  <%= image_tag t.image_url, size: "250x200" if t.user.image? %>
   <%= link_to "詳細へ", food_path(t.id) %>
+  </div>
 <% end %>
 </div>
 </div>
 </div>
-
 
 

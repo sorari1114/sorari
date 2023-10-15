@@ -4,6 +4,11 @@
 
 .perfumes{
     padding: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 .container-sindan{
     margin-left: 20px;
@@ -25,15 +30,39 @@
 
 .sindanbotan input{
     width: 300px;
-    background-color: red;
+    background-color: rgb(158, 239, 158);
     font-size: 30px;
 }
 
 .intoro{
     text-align: center;
+    padding-top: 95px;
 }
 
 .tweet{
     text-align: center;
 }
 
+.sign{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.edit{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

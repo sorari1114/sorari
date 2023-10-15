@@ -23,30 +23,52 @@
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: 30px;
+    text-align: center;
     
 }
 
-.new_image{
-    width: 100%;
-    height: 100%;
-    position: absolute;
+.top-low{
+    background-image: url(haikei13.png);
+    background-repeat: repeat;
+    background-size: cover;
+  
+
 }
 
+.maintext{
+    text-align: center;
+}
+
+
+
+
+.foodnew-image{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.food-image{
+    max-width: 100%;
+    height: 130%;
+    position: absolute;
+    opacity: 0.6;
+}
+.toukou{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
 
 .field{
-    font-size: 40px;
-    margin-left: 280px;
-    margin-top: 60px;
+    font-size: 30px;
+    text-align: center;
 }
 
-.time{
-    margin-left: 280px;
-    margin-top: 20px;
-}
 
-.field input{
-    margin-left: 280px;
-}
 
 .openbtn{
     background-color:rgb(254, 252, 148);
@@ -63,6 +85,11 @@
 
 .food_all{
     padding-top: 100px;
+    background-image: url(haikei7.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+
+
 }
 
 .foodkensaku{
@@ -72,6 +99,8 @@
 .foods-container{
     display: flex;
     flex-wrap: wrap;
+
+    
 }
 
 .food-container{

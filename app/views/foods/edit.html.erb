@@ -1,6 +1,6 @@
 <header>
   <div class="header-logo">
-    <h1>Share recipe</h1>
+    <h1>cook with</h1>
   </div>
   <div class="openbtn"><span></span><span></span><span></span></div>
   <nav id="g-nav">
@@ -34,41 +34,41 @@
     </div>
   </nav>
 </header>
-<h1>編集ページ</h1>
+<h1>編集</h1>
 
 <%= form_with(model: @food, local: true) do |f| %>
 
 
     <div class="field">
-      <%= f.label :title %>
+      <%= f.label :料理名 %>
       <%= f.text_field :title, :size => 30 %>
     </div>
   
     <div class="field">
-      <%= f.label :ingredient %>
+      <%= f.label :材料 %>
       <%= f.text_field :ingredient, :size => 30 %>
     </div>
   
     
     <div class="field">
-      <%= f.label :body  %>
+      <%= f.label :ジャンル  %>
       <%= f.select :body, 
       [["時短料理", "時短料理"], 
       ["家庭料理", "家庭料理"], 
       ["異国料理", "異国料理"]], include_blank: "選択して下さい" %>
     </div>
   
-    <div class="time">
-      <%= f.label :start_time %>
+    <div class="field">
+      <%= f.label :作成日時 %>
       <%= f.datetime_select :start_time %>
     </div>
   
     <div class="field">
-      <%= f.label :cook  %>
+      <%= f.label :作り方  %>
       <%= f.text_area :cook, :size => "30x2" %>
     </div>
   
-    <%= f.submit "投稿する" %>
+    <%= f.submit "投稿" %>
   <% end %>
   
   <%= link_to "Food一覧に戻る", foods_path %>
